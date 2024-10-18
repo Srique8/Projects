@@ -75,3 +75,5 @@ function render(cyl, msCyl, angleCyl, sphere, msSphere, angleSphere, tetra, msTe
 };
 
 window.onload = init;
+
+

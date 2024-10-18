@@ -68,7 +68,7 @@ class Cylinder {
 
         setupUniform(program, "MV", mat4());
         setupUniform(program, "P", mat4());
-        setupUniform(program, "color", vec4(0.8, 0.8, 0.8, 1.0));
+        setupUniform(program, "color", vec4(1, 0, 1, 0.3));
 
         let setupConstant = (name, value) => {
             let location = gl.getUniformLocation(program, name);

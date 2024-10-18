@@ -65,7 +65,7 @@ class Tetrahedron {
 
         setupUniform(program, "MV", mat4());
         setupUniform(program, "P", mat4());
-        setupUniform(program, "color", vec4(0.8, 0.8, 0.8, 1.0));
+        setupUniform(program, "color", vec4(0, 0.4, 0, 0.4));
 
         this.draw = () => {
             gl.useProgram(program);
