@@ -7,7 +7,7 @@
 
 class BasicCube {
     constructor(gl, vertexShader, fragmentShader) {
-
+        //edit
         // let program = new ShaderProgram(gl, this, vertexShader, fragmentShader);
 
         this.draw = () => {
