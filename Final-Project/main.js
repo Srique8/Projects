@@ -20,6 +20,8 @@ camera.position.z = 5;
 const Timer = new THREE.Clock();
 Timer.stop();
 
+var scoreKeeper = 0;
+
 
 const renderer = new THREE.WebGLRenderer();
 
@@ -43,18 +45,24 @@ const geometries = [
 ];
 
 // Material for Geometry
-const Material = new THREE.MeshToonMaterial({ color: 0xffffff });
+const Material = new THREE.MeshPhongMaterial({ color: 0xffffff });
 
 // lights for textured geometry
-const DL = new THREE.DirectionalLight(0x34ebb4, 5.0);
-DL.position.copy(new THREE.Vector3(0,2,2.5));
+const DL = new THREE.DirectionalLight(0x0000ff, 2.0);
+DL.position.copy(new THREE.Vector3(0, 1, 0.5));
 
-const opposingDL = new THREE.DirectionalLight(0xffffff, 0.04);
-opposingDL.position.copy(new THREE.Vector3(0,-1,5));
-scene.add( opposingDL )
+const opposingDLL = new THREE.DirectionalLight(0xff0000, 2.0);
+opposingDLL.position.copy(new THREE.Vector3(-1, -1, 0.5));
+scene.add( opposingDLL )
 scene.add( DL );
 
-// Initialize the first shape
+const opposingDLR = new THREE.DirectionalLight(0xffff00, 2.0);
+opposingDLR.position.copy(new THREE.Vector3(1, -1, 0.5));
+scene.add( opposingDLR )
+scene.add( DL );
+
+
+// Initialize the button
 let ButtonShowing = true;
 let StarterButton = randomShape();
 scene.add(StarterButton);
@@ -74,6 +82,9 @@ function animate() {
     //updates the timer on the screen
     const timerElement = document.getElementById('timer');
     timerElement.innerText = `Timer: ${elapsedTime.toFixed(2)}`;
+
+    const ScoreElement = document.getElementById('score');
+    ScoreElement.innerText = `Score: ${scoreKeeper}`;
 
     //resets the game when reaching 60 seconds
     if (elapsedTime >= 10) { 
@@ -124,7 +135,7 @@ function onMouseDown(event) {
             console.log("start button clicked, starting timer...");
 
             ButtonShowing = false;
-
+            scoreKeeper = 0;
             Timer.start();
 
             scene.remove(StarterButton);
@@ -144,6 +155,7 @@ function onMouseDown(event) {
         CurrentShape.geometry.dispose();
         CurrentShape.material.dispose();
         CurrentShape = null;
+        scoreKeeper += 1;
 
         // Create and add a new shape
         CurrentShape = randomShape();
