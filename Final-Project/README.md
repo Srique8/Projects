@@ -21,3 +21,7 @@ Add a start button that dissapears when clicked and begins the gameplay loop, an
 Three.js
 
 JavaScript
+
+Final presentation: 
+
+https://docs.google.com/presentation/d/1gNCk5g8-5G8kKKsTGMVb87jKzCURkZ81fnjNVSEOrk0/edit?usp=sharing
